@@ -8,6 +8,6 @@ data class Game(
     val name: String,
     val description: String,
     val deck: String,
-    val imageUrl: Image,
+    val imageUrl: Image?,
 
 )

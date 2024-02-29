@@ -2,7 +2,9 @@ package com.curiousapps.myrocket.data.remote
 
 import com.curiousapps.myrocket.data.models.Games
 import com.curiousapps.myrocket.data.models.Results
+import com.curiousapps.myrocket.domain.Game
 import retrofit2.http.GET
+import retrofit2.http.Header
 import retrofit2.http.Query
 
 interface GameApi {
@@ -12,7 +14,15 @@ interface GameApi {
         @Query("api_key") apiKey: String,
         @Query("format") format: String,
         @Query("filter") name: String
-    ): List<Results>
+    ): Games
+
+    @GET("game/2/")
+    suspend fun getGame(
+//        @Header("guid") guid: Int,
+        @Query("api_key") apiKey: String,
+        @Query("format") format: String,
+
+    ): Games
 
     companion object{
         const val BASE_URL = "https://www.giantbomb.com/api/"

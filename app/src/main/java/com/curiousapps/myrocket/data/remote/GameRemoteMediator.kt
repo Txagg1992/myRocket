@@ -39,7 +39,7 @@ class GameRemoteMediator(
                 if (loadType == LoadType.REFRESH){
                     //gameDb.dao.clearAll()
                 }
-                val gameEntities = games.map { it.toGameEntity() }
+                //val gameEntities = games.map { it.toGameEntity() }
                 //gameDb.dao.upsertAll(results = gameEntities)
             }
 
