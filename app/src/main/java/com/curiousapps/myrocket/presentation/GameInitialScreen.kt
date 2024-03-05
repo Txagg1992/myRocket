@@ -3,6 +3,7 @@ package com.curiousapps.myrocket.presentation
 import android.widget.Toast
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.lazy.LazyColumn
@@ -27,13 +28,15 @@ fun GameInitialScreen(
 
     val context = LocalContext.current
 
-    LaunchedEffect(key1 = games.loadState){
-        if (games.loadState.refresh is LoadState.Error){
-            Toast.makeText(context, "Error: " +
-                    (games.loadState.refresh as LoadState.Error).error.message,
+    LaunchedEffect(key1 = games.loadState) {
+        if (games.loadState.refresh is LoadState.Error) {
+            Toast.makeText(
+                context, "Error: " +
+                        (games.loadState.refresh as LoadState.Error).error.message,
                 Toast.LENGTH_SHORT
             ).show()
         }
+    }
 
         Box(modifier = Modifier.fillMaxSize()){
             if (games.loadState.refresh is LoadState.Loading){
@@ -45,16 +48,19 @@ fun GameInitialScreen(
                     horizontalAlignment = Alignment.CenterHorizontally
                 ){
                     items(games){ game ->
-                        if (game !=null){
+                        if (game != null){
                             GameItem(
                                 game = game,
                                 modifier = Modifier.fillMaxWidth()
                             )
                         }
                     }
+                    item {
+                        if (games.loadState.append is LoadState.Loading){
+                            CircularProgressIndicator()
+                        }
+                    }
                 }
             }
         }
-    }
-
 }
