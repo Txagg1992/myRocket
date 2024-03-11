@@ -3,7 +3,7 @@ package com.curiousapps.myrocket.data.mappers
 import com.curiousapps.myrocket.data.local.GameEntity
 import com.curiousapps.myrocket.data.models.Image
 import com.curiousapps.myrocket.data.models.Results
-import com.curiousapps.myrocket.domain.Game
+import com.curiousapps.myrocket.domain.model.Game
 
 
 fun Results.toGameEntity(): GameEntity{
@@ -16,7 +16,7 @@ fun Results.toGameEntity(): GameEntity{
     )
 }
 
-fun GameEntity.toGame(): Game{
+fun GameEntity.toGame(): Game {
     return Game(
         id = id,
         name = name,

@@ -1,4 +1,4 @@
-package com.curiousapps.myrocket.domain
+package com.curiousapps.myrocket.domain.model
 
 import com.curiousapps.myrocket.data.models.Image
 

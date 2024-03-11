@@ -1,22 +1,15 @@
 package com.curiousapps.myrocket.data.remote
 
-import android.util.Log
 import com.curiousapps.myrocket.data.models.Games
-import com.curiousapps.myrocket.data.models.Results
-import com.curiousapps.myrocket.domain.Game
-import com.google.gson.GsonBuilder
 import okhttp3.ResponseBody
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
-import retrofit2.http.Header
 import retrofit2.http.Query
 
 interface GameApi {
 
     @GET("games")
     suspend fun getGames(
-        @Query("api_key") apiKey: String,
+        @Query("api_key") apiKey: String = API_KEY,
         @Query("format") format: String,
         @Query("filter") name: String
     ): ResponseBody
