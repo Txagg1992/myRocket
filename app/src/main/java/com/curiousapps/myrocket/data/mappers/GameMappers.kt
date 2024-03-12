@@ -22,6 +22,5 @@ fun GameEntity.toGame(): Game {
         name = name,
         description = description,
         deck = deck,
-        imageUrl = Image.imageUrl
     )
 }
