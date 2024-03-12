@@ -36,7 +36,7 @@ fun GameItem(
                 .padding(16.dp)
         ) {
             AsyncImage(
-                model = game.imageUrl,
+                model = game.description,
                 contentDescription = game.name,
                 modifier = Modifier
                     .weight(1f)
@@ -77,7 +77,7 @@ fun GameItemPreview(){
                 name = "Lots of Fun Game",
                 description = "This is an Awesome Game to play all of the time",
                 deck = "This is a better description that doesn't have to be formatted",
-                imageUrl = null
+
             ),
             modifier = Modifier.fillMaxWidth()
         )

@@ -1,10 +1,12 @@
 package com.curiousapps.myrocket.data.local
 
+import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import retrofit2.http.DELETE
 
+@Dao
 interface StockDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
