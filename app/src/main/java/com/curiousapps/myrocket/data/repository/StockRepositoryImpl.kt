@@ -1,7 +1,10 @@
 package com.curiousapps.myrocket.data.repository
 
+import androidx.compose.ui.text.resolveDefaults
+import com.curiousapps.myrocket.data.csv.CSVParser
 import com.curiousapps.myrocket.data.local.StockDatabase
 import com.curiousapps.myrocket.data.mappers.toCompanyListing
+import com.curiousapps.myrocket.data.mappers.toCompanyListingEntity
 import com.curiousapps.myrocket.data.remote.GameApi
 import com.curiousapps.myrocket.domain.model.CompanyListing
 import com.curiousapps.myrocket.domain.repository.StockRepository
@@ -16,7 +19,8 @@ import javax.inject.Singleton
 @Singleton
 class StockRepositoryImpl @Inject constructor(
     private val api: GameApi,
-    private val db: StockDatabase
+    private val db: StockDatabase,
+    private  val companyListingsParser: CSVParser<CompanyListing>
 ): StockRepository  {
 
     private val dao = db.dao
@@ -39,13 +43,31 @@ class StockRepositoryImpl @Inject constructor(
             }
             val remoteListing = try {
                 val response = api.getListings()
-                //response.byteStream()
+                companyListingsParser.parse(response.byteStream())
             }catch (e: IOException){
                 e.printStackTrace()
                 emit(Resource.Error("No Data to load"))
+                null
             }catch (e: HttpException){
                 e.printStackTrace()
                 emit(Resource.Error("No Data to load"))
+                null
+            }
+
+            remoteListing?.let { listings ->
+                dao.clearCompanyListings()
+                dao.insertCompanyListing(
+                    listings.map {
+                        it.toCompanyListingEntity()
+                    }
+                )
+                emit(Resource.Success(
+                    data = dao
+                        .searchCompanyListings("")
+                        .map { it.toCompanyListing() }
+                ))
+                emit(Resource.Loading(false))
+
             }
         }
     }
