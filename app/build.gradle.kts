@@ -5,7 +5,7 @@ plugins {
     kotlin("kapt")
 
     id("kotlin-parcelize")
-    id("dagger.hilt.android.plugin")
+    id("com.google.dagger.hilt.android")
     //id("com.google.devtools.ksp")
 }
 
@@ -106,8 +106,9 @@ dependencies {
     implementation("io.coil-kt:coil-compose:2.2.2")
 
     // Dagger - Hilt
-    implementation("com.google.dagger:hilt-android:2.45")
-    kapt("com.google.dagger:hilt-android-compiler:2.45")
+    val hilt_version = "2.51"
+    implementation("com.google.dagger:hilt-android:$hilt_version")
+    kapt("com.google.dagger:hilt-android-compiler:$hilt_version")
     kapt("androidx.hilt:hilt-compiler:1.0.0")
     implementation("androidx.hilt:hilt-navigation-compose:1.0.0")
     implementation ("androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03")
@@ -130,4 +131,8 @@ dependencies {
     implementation("androidx.room:room-runtime:$room_version")
     implementation("androidx.room:room-ktx:$room_version")
     kapt("androidx.room:room-compiler:$room_version")
+}
+
+kapt{
+    correctErrorTypes = true
 }
