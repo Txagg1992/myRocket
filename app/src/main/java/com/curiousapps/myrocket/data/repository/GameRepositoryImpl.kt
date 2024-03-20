@@ -24,31 +24,37 @@ class GameRepositoryImpl @Inject constructor(
         fetchFromRemote: Boolean,
         query: String
     ): Flow<Resource<List<Game>>> {
-        return flow {
-            emit(Resource.Loading(true))
-            val localGames = dao.searchGames(query)
-            emit(Resource.Success(
-                data = localGames.map { it.toGame() }
-            ))
-
-            val isDbEmpty = localGames.isEmpty() && query.isBlank()
-            val shouldLoadFromCache = !isDbEmpty && !fetchFromRemote
-            if (shouldLoadFromCache){
-                emit(Resource.Loading(false))
-                return@flow
-            }
-
-            val remoteListing = try {
-                val response = api.getGames(GameApi.API_KEY, GameApi.FORMAT, "")
-                response.byteStream()
-            }catch (e: IOException){
-                e.printStackTrace()
-                emit(Resource.Error("Couldn't load from DB"))
-            }catch (e: HttpException){
-                e.printStackTrace()
-                emit(Resource.Error("Couldn't load from API"))
-            }
-
-        }
+        TODO("Not yet implemented")
     }
+//    override suspend fun getGameList(
+//        fetchFromRemote: Boolean,
+//        query: String
+//    ): Flow<Resource<List<Game>>> {
+//        return flow {
+//            emit(Resource.Loading(true))
+//            val localGames = dao.searchGames(query)
+//            emit(Resource.Success(
+//                data = localGames.map { it.toGame() }
+//            ))
+//
+//            val isDbEmpty = localGames.isEmpty() && query.isBlank()
+//            val shouldLoadFromCache = !isDbEmpty && !fetchFromRemote
+//            if (shouldLoadFromCache){
+//                emit(Resource.Loading(false))
+//                return@flow
+//            }
+//
+//            val remoteListing = try {
+//                val response = api.getGames(GameApi.API_KEY, GameApi.FORMAT, "")
+//                response.byteStream()
+//            }catch (e: IOException){
+//                e.printStackTrace()
+//                emit(Resource.Error("Couldn't load from DB"))
+//            }catch (e: HttpException){
+//                e.printStackTrace()
+//                emit(Resource.Error("Couldn't load from API"))
+//            }
+//
+//        }
+//    }
 }
