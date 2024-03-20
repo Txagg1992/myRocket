@@ -26,7 +26,7 @@ android {
 
     defaultConfig {
         applicationId = "com.curiousapps.rocketgame"
-        minSdk = 30
+        minSdk = 28
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
@@ -112,7 +112,7 @@ dependencies {
     kapt("com.google.dagger:hilt-android-compiler:$hilt_version")
     kapt("androidx.hilt:hilt-compiler:1.0.0")
     implementation("androidx.hilt:hilt-navigation-compose:1.0.0")
-    implementation ("androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03")
+    //implementation ("androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03")
 
     // Paging
     implementation("androidx.paging:paging-runtime-ktx:3.1.1")

@@ -44,25 +44,25 @@ object AppModule {
             .create()
     }
 
-    @Provides
-    @Singleton
-    fun providesGameDatabase(@ApplicationContext context: Context): GameDatabase{
-        return Room.databaseBuilder(
-            context,
-            GameDatabase::class.java,
-            "games.db"
-        ).build()
-    }
+//    @Provides
+//    @Singleton
+//    fun providesGameDatabase(@ApplicationContext context: Context): GameDatabase{
+//        return Room.databaseBuilder(
+//            context,
+//            GameDatabase::class.java,
+//            "games.db"
+//        ).build()
+//    }
 
-    @Provides
-    @Singleton
-    fun providesGameApi(): GameApi{
-        return Retrofit.Builder()
-            .baseUrl(GameApi.BASE_URL)
-            .addConverterFactory(MoshiConverterFactory.create())
-            .build()
-            .create()
-    }
+//    @Provides
+//    @Singleton
+//    fun providesGameApi(): GameApi{
+//        return Retrofit.Builder()
+//            .baseUrl(GameApi.BASE_URL)
+//            .addConverterFactory(MoshiConverterFactory.create())
+//            .build()
+//            .create()
+//    }
 
 //    @Provides
 //    @Singleton

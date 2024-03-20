@@ -8,19 +8,17 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
-
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.semantics.SemanticsProperties.Text
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.input.KeyboardType
-import androidx.compose.ui.text.input.KeyboardType.Companion.Text
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.curiousapps.myrocket.domain.model.CompanyListing
+import com.curiousapps.myrocket.ui.theme.MyRocketTheme
 
 
 @Composable
@@ -39,7 +37,7 @@ fun CompanyItem(
                 modifier = Modifier.fillMaxWidth()
             ) {
                 Text(
-                    text = company.exchange,
+                    text = company.name,
                     modifier = Modifier.weight(1f),
                     color = MaterialTheme.colorScheme.onBackground,
                     overflow = TextOverflow.Ellipsis,
@@ -65,5 +63,20 @@ fun CompanyItem(
                 color = MaterialTheme.colorScheme.onBackground
             )
         }
+    }
+}
+
+@Preview
+@Composable
+fun CompanyItemPreview(){
+    MyRocketTheme{
+        CompanyItem(
+            company = CompanyListing(
+                name = "TrumpTower",
+                symbol = "TT",
+                exchange = "ToTo"
+            ),
+            modifier = Modifier.fillMaxWidth()
+        )
     }
 }

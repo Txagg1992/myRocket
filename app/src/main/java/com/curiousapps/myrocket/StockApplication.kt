@@ -1,6 +1,8 @@
 package com.curiousapps.myrocket
 
 import android.app.Application
+import dagger.hilt.android.HiltAndroidApp
 
-class StockApplication: Application() {
+@HiltAndroidApp
+class StockApp: Application() {
 }
