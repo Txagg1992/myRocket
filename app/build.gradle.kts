@@ -2,11 +2,11 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
 
-    kotlin("kapt")
+    id("kotlin-kapt")
 
     id("kotlin-parcelize")
     id("com.google.dagger.hilt.android")
-    //id("com.google.devtools.ksp")
+    id("com.google.devtools.ksp")
 }
 
 
@@ -99,8 +99,9 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.1")
 
     // Compose Nav Destinations
-    implementation ("io.github.raamcosta.compose-destinations:core:1.1.2-beta")
-    kapt ("io.github.raamcosta.compose-destinations:ksp:1.1.2-beta")
+    val raam_costa_version = "1.11.2-alpha"
+    implementation ("io.github.raamcosta.compose-destinations:core:$raam_costa_version")
+    ksp ("io.github.raamcosta.compose-destinations:ksp:$raam_costa_version")
 
     // Coil Compose
     implementation("io.coil-kt:coil-compose:2.2.2")
@@ -129,8 +130,9 @@ dependencies {
     implementation ("org.xerial:sqlite-jdbc:3.34.0")
     val room_version = "2.6.1"
     implementation("androidx.room:room-runtime:$room_version")
+    annotationProcessor("androidx.room:room-compiler:$room_version")
     implementation("androidx.room:room-ktx:$room_version")
-    kapt("androidx.room:room-compiler:$room_version")
+    ksp("androidx.room:room-compiler:$room_version")
 }
 
 kapt{
