@@ -72,9 +72,9 @@ fun CompanyItemPreview(){
     MyRocketTheme{
         CompanyItem(
             company = CompanyListing(
-                name = "TrumpTower",
-                symbol = "TT",
-                exchange = "ToTo"
+                name = "Samsung TV, Appliance, Mobile, Receiver, Tablet",
+                symbol = "SMSG",
+                exchange = "NYSE"
             ),
             modifier = Modifier.fillMaxWidth()
         )
