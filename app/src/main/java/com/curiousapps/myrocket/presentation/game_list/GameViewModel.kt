@@ -1,4 +1,4 @@
-package com.curiousapps.myrocket.presentation
+package com.curiousapps.myrocket.presentation.game_list
 //
 //import androidx.lifecycle.ViewModel
 //import androidx.lifecycle.viewModelScope

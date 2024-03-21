@@ -1,4 +1,4 @@
-package com.curiousapps.myrocket.presentation
+package com.curiousapps.myrocket.presentation.game_list
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
