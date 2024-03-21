@@ -6,6 +6,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.text.toLowerCase
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.curiousapps.myrocket.domain.model.CompanyListing
 import com.curiousapps.myrocket.domain.repository.StockRepository
 import com.curiousapps.myrocket.util.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -69,4 +70,18 @@ class CompanyListingsViewModel @Inject constructor(
         }
     }
 
+}
+
+data class CompanyListingsState(
+    val companies: List<CompanyListing> = emptyList(),
+    val isLoading: Boolean = false,
+    val isRefreshing: Boolean = false,
+    val searchQuery: String = ""
+)
+
+sealed class CompanyListingsEvent {
+
+    object Refresh: CompanyListingsEvent()
+    data class OnSearchQueryChange(
+        val query: String): CompanyListingsEvent()
 }
