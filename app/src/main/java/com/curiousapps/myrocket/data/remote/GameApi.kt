@@ -1,6 +1,7 @@
 package com.curiousapps.myrocket.data.remote
 
 import com.curiousapps.myrocket.data.models.Games
+import com.curiousapps.myrocket.data.remote.dto.CompanyInfoDto
 import okhttp3.ResponseBody
 import retrofit2.http.GET
 import retrofit2.http.Query
@@ -14,18 +15,22 @@ interface GameApi {
         @Query("filter") name: String
     ): ResponseBody
 
-    @GET("game/2/")
-    suspend fun getGame(
-//        @Header("guid") guid: Int,
-        @Query("api_key") apiKey: String,
-        @Query("format") format: String,
-
-    ): Games
-
     @GET("query?function=LISTING_STATUS")
     suspend fun getListings(
         @Query("apikey") apiKey: String = S_API_KEY
     ): ResponseBody
+
+    @GET("query?function=TIME_SERIES_INTRADAY&interval=60min&datatype=csv")
+    suspend fun getIntradayInfo(
+        @Query("symbol") symbol: String,
+        @Query("apikey") apiKey: String = S_API_KEY
+    ): ResponseBody
+
+    @GET("query?function=OVERVIEW")
+    suspend fun getCompanyInfo(
+        @Query("symbol") symbol: String,
+        @Query("apikey") apiKey: String = S_API_KEY
+    ): CompanyInfoDto
 
     companion object{
         const val BASE_URL = "https://www.giantbomb.com/api/"
