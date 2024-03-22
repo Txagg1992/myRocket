@@ -73,7 +73,6 @@ fun StockChart(
             }
         }
         var lastX = 0f
-        var lastY = 0f
         val strokePath = Path().apply {
 
             val height = size.height
@@ -92,9 +91,8 @@ fun StockChart(
                     moveTo(x1, y1)
                 }
                 lastX = (x1 + x2) / 2f
-                lastY = (y1 + y2)/ 2f
-                quadraticBezierTo(
-                    x1, y1, lastX, lastY
+                quadraticTo(
+                    x1, y1, lastX, (y1 + y2)/ 2f
                 )
             }
         }
