@@ -1,8 +1,6 @@
 package com.curiousapps.myrocket.data.repository
 
-import androidx.compose.ui.text.resolveDefaults
 import com.curiousapps.myrocket.data.csv.CSVParser
-import com.curiousapps.myrocket.data.csv.IntradayInfoParser
 import com.curiousapps.myrocket.data.local.StockDatabase
 import com.curiousapps.myrocket.data.mappers.toCompanyInfo
 import com.curiousapps.myrocket.data.mappers.toCompanyListing
@@ -17,7 +15,6 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import retrofit2.HttpException
 import java.io.IOException
-import java.io.PrintStream
 import javax.inject.Inject
 import javax.inject.Singleton
 

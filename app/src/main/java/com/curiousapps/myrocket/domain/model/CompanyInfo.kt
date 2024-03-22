@@ -1,6 +1,5 @@
 package com.curiousapps.myrocket.domain.model
 
-import com.squareup.moshi.Json
 
 data class CompanyInfo(
     val symbol: String,

@@ -24,7 +24,6 @@ fun GameItem(
     game: Game,
     modifier: Modifier,
 ){
-    val eleDP = 4.dp
     Card(
         modifier = modifier,
 

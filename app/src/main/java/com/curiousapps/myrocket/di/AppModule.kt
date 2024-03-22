@@ -1,19 +1,12 @@
 package com.curiousapps.myrocket.di
 
 import android.app.Application
-import android.content.Context
-import androidx.paging.Pager
-import androidx.paging.PagingConfig
 import androidx.room.Room
-import com.curiousapps.myrocket.data.local.GameDatabase
-import com.curiousapps.myrocket.data.local.GameEntity
 import com.curiousapps.myrocket.data.local.StockDatabase
 import com.curiousapps.myrocket.data.remote.GameApi
-//import com.curiousapps.myrocket.data.remote.GameRemoteMediator
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
-import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory

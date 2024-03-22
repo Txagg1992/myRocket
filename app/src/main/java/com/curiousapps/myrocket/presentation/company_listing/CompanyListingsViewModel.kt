@@ -3,7 +3,6 @@ package com.curiousapps.myrocket.presentation.company_listing
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.text.toLowerCase
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.curiousapps.myrocket.domain.model.CompanyListing
@@ -12,7 +11,6 @@ import com.curiousapps.myrocket.util.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -46,7 +44,7 @@ class CompanyListingsViewModel @Inject constructor(
     }
 
     private fun getCompanyListings(
-        query: String = state.searchQuery.toLowerCase(),
+        query: String = state.searchQuery.lowercase(),
         fetchFromRemote: Boolean = false
     ){
         viewModelScope.launch {

@@ -1,15 +1,11 @@
 package com.curiousapps.myrocket.data.repository
 
 import com.curiousapps.myrocket.data.local.GameDatabase
-import com.curiousapps.myrocket.data.mappers.toGame
 import com.curiousapps.myrocket.data.remote.GameApi
 import com.curiousapps.myrocket.domain.model.Game
 import com.curiousapps.myrocket.domain.repository.GameRepository
 import com.curiousapps.myrocket.util.Resource
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flow
-import okio.IOException
-import retrofit2.HttpException
 import javax.inject.Inject
 import javax.inject.Singleton
 

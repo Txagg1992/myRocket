@@ -5,7 +5,6 @@ import com.curiousapps.myrocket.domain.model.CompanyListing
 import com.curiousapps.myrocket.domain.model.IntradayInfo
 import com.curiousapps.myrocket.util.Resource
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flow
 
 interface StockRepository {
 

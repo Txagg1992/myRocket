@@ -1,6 +1,5 @@
 package com.curiousapps.myrocket.domain.model
 
-import com.curiousapps.myrocket.data.models.Image
 
 data class Game(
 
