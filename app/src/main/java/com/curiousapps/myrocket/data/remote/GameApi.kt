@@ -36,7 +36,8 @@ interface GameApi {
         const val BASE_URL = "https://www.giantbomb.com/api/"
         const val FORMAT = "json"
         const val API_KEY = "9d45436f87d3848d2bdcce810bacb6df57dfd134"
-        const val S_API_KEY = "5QDAW4RPYUR4JRQF"
+        //const val S_API_KEY = "5QDAW4RPYUR4JRQF"
+        const val S_API_KEY = "8FBKB66L9Q46VPEJ"
         const val S_BASE_URL = "https://www.alphavantage.co/"
     }
 }
